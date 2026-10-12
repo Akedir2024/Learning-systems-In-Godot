@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://3xi6pqkr1d7n"]
+
+[ext_resource type="Script" uid="uid://bd32agodp2uts" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://dcqu1vfmlbitw" path="res://Textures/kenney_prototype_textures/purple/texture_01.png" id="2_onrkg"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k3plq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jfba5"]
+albedo_texture = ExtResource("2_onrkg")
+uv1_triplanar = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_p4haa"]
+material = SubResource("StandardMaterial3D_jfba5")
+
+[node name="Player" type="CharacterBody3D" unique_id=1593301279]
+script = ExtResource("1_onrkg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1386415709]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2158203, 0)
+shape = SubResource("CapsuleShape3D_k3plq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" unique_id=2083340782]
+mesh = SubResource("CapsuleMesh_p4haa")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=390271344]
+unique_name_in_owner = true
+transform = Transform3D(0.9989163, -0.0010523623, 0.04653027, 0, 0.99974436, 0.022610942, -0.046542168, -0.022586439, 0.998661, 0, 1.7064364, -0.09598279)
